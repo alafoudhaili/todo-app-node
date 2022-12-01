@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Todolist</h1>
+    <form action="/todo/new" method="post">
+        <h6>Tache</h6>
+        <input type="text" name="tache">
+        <button>Ajouter</button>
+    </form>
+    <h2>Les taches</h2>
+    <ul>
+        
+            <% for(var i=0; i < liste.length; i++) { %>
+               
+                 <li><%= liste[i].tache %>
+
+                    <% if(liste[i].terminer){ %>
+
+                        <a href="/todo/del?id=<%= liste[i].id %>">
+                            supprimer
+                         </a>
+                   <% } else { %>
+                    <a href="/todo/complete?id=<%= liste[i].id %>">
+                        terminer
+                     </a>
+
+                    <% } %>
+               </li>
+                 
+               
+            <% } %>
+            
+    </ul>
+    
+</body>
+</html>
